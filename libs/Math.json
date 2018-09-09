@@ -1,0 +1,42 @@
+[{
+    "MathObject" : "sin",
+    "data":{
+        "Point1":{
+            "pointStart":0.5,
+            "pointEnd":0.5},
+        "Point2":{
+            "pointStart":1.5,
+            "pointEnd":1.5},
+        "position":{
+            "_x":0,
+            "_y":0,
+            "_z":0},
+        "rotation":{
+            "_x":0,
+            "_y":30,
+            "_z":0
+        },
+        "AxesLength":7
+        }
+  },{
+    "MathObject" : "cos",
+    "data":{
+        "Point1":{
+            "pointStart":1,
+            "pointEnd":1},
+        "Point2":{
+            "pointStart":2,
+            "pointEnd":2},
+        "position":{
+            "_x":14,
+            "_y":0,
+            "_z":0},
+        "rotation":{
+            "_x":0,
+            "_y":30,
+            "_z":0},
+        "AxesLength":7
+        }
+
+  }
+]
