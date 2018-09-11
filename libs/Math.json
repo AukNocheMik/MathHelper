@@ -1,42 +1,85 @@
-[{
-    "MathObject" : "sin",
+[[{
+    "MathType" : 1,
     "data":{
-        "Point1":{
-            "pointStart":0.5,
-            "pointEnd":0.5},
-        "Point2":{
-            "pointStart":1.5,
-            "pointEnd":1.5},
         "position":{
             "_x":0,
             "_y":0,
             "_z":0},
         "rotation":{
             "_x":0,
-            "_y":30,
+            "_y":0,
             "_z":0
         },
         "AxesLength":7
         }
-  },{
-    "MathObject" : "cos",
+  }],[{
+    "MathType" : 2,
     "data":{
-        "Point1":{
-            "pointStart":1,
-            "pointEnd":1},
-        "Point2":{
-            "pointStart":2,
-            "pointEnd":2},
         "position":{
             "_x":14,
             "_y":0,
             "_z":0},
         "rotation":{
             "_x":0,
-            "_y":30,
+            "_y":0,
             "_z":0},
         "AxesLength":7
         }
 
-  }
+  }],[{
+    "MathType" : 3,
+    "data":{
+        "position":{
+            "_x":28,
+            "_y":0,
+            "_z":0},
+        "rotation":{
+            "_x":0,
+            "_y":0,
+            "_z":0},
+        "AxesLength":7
+        }
+  }],
+  [{
+    "MathType" : 4,
+    "data":{
+        "position":{
+            "_x":0,
+            "_y":0,
+            "_z":-14},
+        "rotation":{
+            "_x":0,
+            "_y":0,
+            "_z":0},
+        "AxesLength":7
+        }
+  }],
+  [{
+    "MathType" : 5,
+    "data":{
+        "position":{
+            "_x":14,
+            "_y":0,
+            "_z":-14},
+        "rotation":{
+            "_x":0,
+            "_y":0,
+            "_z":0},
+        "AxesLength":7
+        }
+  }],
+  [{
+    "MathType" : 6,
+    "data":{
+        "position":{
+            "_x":28,
+            "_y":0,
+            "_z":-14},
+        "rotation":{
+            "_x":0,
+            "_y":0,
+            "_z":0},
+        "AxesLength":7
+        }
+  }]
 ]

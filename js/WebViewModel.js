@@ -1,4 +1,12 @@
-var clock = new THREE.Clock();
+var MathType = {
+    sin:1,
+    cos:2,
+    tan:3,
+    asin:4,
+    acos:5,
+    atan:6
+}
+   var clock = new THREE.Clock();
     var renderer;
     var groupArray = [];
     function initRender() {
@@ -45,54 +53,19 @@ var clock = new THREE.Clock();
      }
     function  initSinObject(data) {
         var mathData = JSON.parse(data);
+        console.log(mathData);
         for(var i=0;i<mathData.length;i++){
         var group = new THREE.Group();  
         var axerhelp = new THREE.AxesHelper(7);
         group.add(axerhelp);
-        group.position.set(mathData[i].data.position._x,
-            mathData[i].data.position._y,
-            mathData[i].data.position._z
+        group.position.set(mathData[i][0].data.position._x,
+            mathData[i][0].data.position._y,
+            mathData[i][0].data.position._z
             );
-            group.rotation.set(mathData[i].data.rotation._x,
-                mathData[i].data.position._y,
-                mathData[i].data.position._z
-                );
-
-     
-
-        if(mathData[i].MathObject == "sin"){
-            var material = new THREE.LineBasicMaterial( { color: 0x0000ff } );
+        if(mathData[i][0].MathType == MathType.sin){
+            console.log('sin');
+            var material = new THREE.LineBasicMaterial( { color: 0x000000 } );
             var geometry = new THREE.Geometry();
-            var curve1 = new THREE.SplineCurve( [
-                new THREE.Vector2( Math.PI * 0.5, 0),
-                new THREE.Vector2( Math.PI * 0.5, Math.sin(Math.Pi*0.5) ),
-            ] );
-            var points1 = curve1.getPoints( 10 );
-            var geometry1 = new THREE.BufferGeometry().setFromPoints( points1 );
-    
-            var material1 = new THREE.LineBasicMaterial( { color : 0xff0000 } );
-    
-    // Create the final object to add to the scene
-            var splineObject1 = new THREE.LineSegments( geometry1, material1 );
-    
-            group.add(splineObject1);
-    
-    
-            var curve2 = new THREE.SplineCurve( [
-                new THREE.Vector2( Math.PI * 1.5, 0),
-                new THREE.Vector2( Math.PI * 1.5, Math.sin(Math.Pi*1.5) ),
-            ] );
-    
-            var points2 = curve2.getPoints( 10 );
-            var geometry2 = new THREE.BufferGeometry().setFromPoints( points2 );
-    
-            var material2 = new THREE.LineBasicMaterial( { color : 0xff0000 } );
-    
-    // Create the final object to add to the scene
-            var splineObject2 = new THREE.LineSegments( geometry2, material2 );
-    
-            group.add(splineObject2);
-    
         for(var j=0;j<6.3;){
             geometry.vertices.push(new THREE.Vector3( j,Math.sin(j),0) );
             j+=0.01;}
@@ -102,41 +75,65 @@ var clock = new THREE.Clock();
             scene.add(group);
             console.log(scene);
             
-        }else if(mathData[i].MathObject == "cos"){
-            var material = new THREE.LineBasicMaterial( { color: 0x0000ff } );
+        }else if(mathData[i][0].MathType == MathType.cos){
+            console.log('cos');
+            var material = new THREE.LineBasicMaterial( { color: 0x000000 } );
             var geometry = new THREE.Geometry();
-            var curve1 = new THREE.SplineCurve( [
-                new THREE.Vector2( Math.PI * 1, 0),
-                new THREE.Vector2( Math.PI * 1, Math.cos(Math.Pi) ),
-            ] );
-            var points1 = curve1.getPoints( 10 );
-            var geometry1 = new THREE.BufferGeometry().setFromPoints( points1 );
-    
-            var material1 = new THREE.LineBasicMaterial( { color : 0xff0000 } );
-    
-    // Create the final object to add to the scene
-            var splineObject1 = new THREE.LineSegments( geometry1, material1 );
-    
-            group.add(splineObject1);
-    
-    
-            var curve2 = new THREE.SplineCurve( [
-                new THREE.Vector2( Math.PI * 2, 0),
-                new THREE.Vector2( Math.PI * 2, Math.cos(Math.Pi* 2) ),
-            ] );
-    
-            var points2 = curve2.getPoints( 10 );
-            var geometry2 = new THREE.BufferGeometry().setFromPoints( points2 );
-    
-            var material2 = new THREE.LineBasicMaterial( { color : 0xff0000 } );
-    
-    // Create the final object to add to the scene
-            var splineObject2 = new THREE.LineSegments( geometry2, material2 );
-    
-            group.add(splineObject2);
     
             for(var j=0;j<6.3;){
             geometry.vertices.push(new THREE.Vector3( j,Math.cos(j),0) );
+            j+=0.01;
+        }
+        var line = new THREE.Line( geometry, material );
+        group.add(line);
+        groupArray.push(group);
+        scene.add(group);
+        }else if(mathData[i][0].MathType == MathType.tan){
+            console.log('tan');
+            var material = new THREE.LineBasicMaterial( { color: 0x000000 } );
+            var geometry = new THREE.Geometry();
+    
+            for(var j=0;j<6.3;){
+            geometry.vertices.push(new THREE.Vector3( j,Math.tan(j),0) );
+            j+=0.01;
+        }
+        var line = new THREE.Line( geometry, material );
+        group.add(line);
+        groupArray.push(group);
+        scene.add(group);
+        }else if(mathData[i][0].MathType == MathType.asin){
+            console.log('tan');
+            var material = new THREE.LineBasicMaterial( { color: 0x000000 } );
+            var geometry = new THREE.Geometry();
+    
+            for(var j=0;j<6.3;){
+            geometry.vertices.push(new THREE.Vector3( j,Math.asin(j),0) );
+            j+=0.01;
+        }
+        var line = new THREE.Line( geometry, material );
+        group.add(line);
+        groupArray.push(group);
+        scene.add(group);
+        }else if(mathData[i][0].MathType == MathType.acos){
+            console.log('tan');
+            var material = new THREE.LineBasicMaterial( { color: 0x000000 } );
+            var geometry = new THREE.Geometry();
+    
+            for(var j=0;j<6.3;){
+            geometry.vertices.push(new THREE.Vector3( j,Math.acos(j),0) );
+            j+=0.01;
+        }
+        var line = new THREE.Line( geometry, material );
+        group.add(line);
+        groupArray.push(group);
+        scene.add(group);
+        }else if(mathData[i][0].MathType == MathType.atan){
+            console.log('tan');
+            var material = new THREE.LineBasicMaterial( { color: 0x000000 } );
+            var geometry = new THREE.Geometry();
+    
+            for(var j=0;j<6.3;){
+            geometry.vertices.push(new THREE.Vector3( j,Math.atan(j),0) );
             j+=0.01;
         }
         var line = new THREE.Line( geometry, material );
